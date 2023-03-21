@@ -26,7 +26,7 @@ download_component = dcc.Download()
 
 app.layout = html.Div(
     [
-        html.H2("Gapminder Data Download", style={"marginBottom": 20}),
+        html.H2("Sabrinas Gapminder Data Download", style={"marginBottom": 20}),
         download_component,
         range_slider,
         download_button,
