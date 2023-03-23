@@ -4,6 +4,7 @@ import dash_html_components as html
 from dash import get_asset_url
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY, dbc.icons.FONT_AWESOME])
+server = app.server
 
 header = html.Div(
     dbc.Container(
@@ -170,4 +171,4 @@ body = dbc.Container(
 app.layout = html.Div([header, body])
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)
