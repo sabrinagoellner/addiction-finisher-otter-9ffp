@@ -1,61 +1,173 @@
 import dash
-import pandas as pd
-from dash import Dash, dash_table, dcc, html, Input, Output, State
-import plotly.express as px
+import dash_bootstrap_components as dbc
+import dash_html_components as html
+from dash import get_asset_url
 
-app = Dash(__name__)
-server = app.server
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY, dbc.icons.FONT_AWESOME])
 
-df = px.data.gapminder()
-
-range_slider = dcc.RangeSlider(
-    value=[1987, 2007],
-    step=5,
-    marks={i: str(i) for i in range(1952, 2012, 5)},
+header = html.Div(
+    dbc.Container(
+        [   
+            html.H2("VERIFAI - A Step towards Evaluating the Responsibility of AI-Systems."),            
+            html.P([
+                    "A first step towards a unified framework for RESPONSIBLE AI."                    
+                ],
+                className="lead",
+                ),
+            html.Hr(className="my-2"),            
+            dbc.Button("Research Paper", color="primary", size="lg", href="https://dl.gi.de/handle/20.500.12116/40372"), 
+                    
+        ],
+        fluid=True,
+        className="py-3 my-2",
+    ),
+    className="h-100 p-5 text-white bg-success",
 )
 
-dtable = dash_table.DataTable(
-    columns=[{"name": i, "id": i} for i in sorted(df.columns)],
-    sort_action="native",
-    page_size=10,
-    style_table={"overflowX": "auto"},
-)
-
-download_button = html.Button("Download Filtered CSV", style={"marginTop": 20})
-download_component = dcc.Download()
-
-app.layout = html.Div(
+body = dbc.Container(
     [
-        html.H2("Sabrinas Gapminder Data Download", style={"marginBottom": 20}),
-        download_component,
-        range_slider,
-        download_button,
-        dtable,
-    ]
+        dbc.Row(
+            [   
+                dbc.Alert("A demo off the app will be available soon on this page.", color="light"),
+                dbc.Card([
+                    dbc.CardHeader("VERIFAI Lifecycle"),
+                    dbc.CardImg(src=get_asset_url('lifecycle.svg'))
+                    ],
+                    class_name="my-2",
+                ),
+
+                dbc.Col(
+                    [   
+                        dbc.Row([
+                            dbc.Col(
+                                html.I(className="fa fa-2x fa-lock"),
+                                width=2
+                            ),
+                            dbc.Col(
+                                html.H2(
+                                    "Privacy",
+                                    className="card-title"),
+                                width=10
+                            ),
+                    ]),                        
+                        html.P(
+                            "Privacy Leakage belongs to the big issues in the AI Landscape. Therefore we check if our model values privacy."
+                        ),
+                    ],
+                    md=4,                    
+                ),
+                
+
+                dbc.Col(
+                    [   
+                        dbc.Row([
+                            dbc.Col(
+                                html.I(className="fa fa-2x fa-scale-balanced"),
+                                width=2
+                            ),
+                            dbc.Col(
+                                html.H2(
+                                    "Fairness",
+                                    className="card-title"),
+                                width=10
+                            ),
+                    ]),                        
+                        html.P(
+                            "A fair model is the baseline for a responsible AI System. Fairness is defined as: non-biased and non-discriminating in any way."
+                        ),
+                    ],
+                    md=4,
+                ),
+                dbc.Col(
+                    [   
+                        dbc.Row([
+                            dbc.Col(
+                                html.I(className="fa fa-2x fa-shield"),
+                                width=2
+                            ),
+                            dbc.Col(
+                                html.H2(
+                                    "Security",
+                                    className="card-title"),
+                                width=10
+                            ),
+                    ]),                        
+                        html.P(
+                            "Secure is defined as robust against any kind of adversarial attacks."
+                        ),
+                    ],
+                    md=4,
+                ),
+                dbc.Col(
+                    [   
+                        dbc.Row([
+                            dbc.Col(
+                                html.I(className="fa fa-2x fa-lightbulb"),
+                                width=2
+                            ),
+                            dbc.Col(
+                                html.H2(
+                                    "Explainability",
+                                    className="card-title"),
+                                width=10
+                            ),
+                    ]),                        
+                        html.P(
+                            "Explainability is the most important feature for users trust in your AI System."
+                        ),
+                    ],
+                    md=4,
+                ),
+                dbc.Col(
+                    [   
+                        dbc.Row([
+                            dbc.Col(
+                                html.I(className="fa fa-2x fa-handshake"),
+                                width=2
+                            ),
+                            dbc.Col(
+                                html.H2(
+                                    "Trust",
+                                    className="card-title"),
+                                width=10
+                            ),
+                    ]),                        
+                        html.P(
+                            "Trustworthy AI for the user."
+                        ),
+                    ],
+                    md=4,
+                ),
+                dbc.Col(
+                    [   
+                        dbc.Row([
+                            dbc.Col(
+                                html.I(className="fa fa-2x fa-user-circle"),
+                                width=2
+                            ),
+                            dbc.Col(
+                                html.H2(
+                                    "Human Centered",
+                                    className="card-title"),
+                                width=10
+                            ),
+                    ]),                        
+                        html.P(
+                            "AI built to support humans and maintained by humans."
+                        ),
+                    ],
+                    md=4,
+                ),
+                html.Hr(className="my-2"),
+                
+                
+            ]
+        )
+    ],
+    className="mt-4",
 )
 
-
-@app.callback(
-    Output(dtable, "data"),
-    Input(range_slider, "value"),
-)
-def update_table(slider_value):
-    if not slider_value:
-        return dash.no_update
-    dff = df[df.year.between(slider_value[0], slider_value[1])]
-    return dff.to_dict("records")
-
-
-@app.callback(
-    Output(download_component, "data"),
-    Input(download_button, "n_clicks"),
-    State(dtable, "derived_virtual_data"),
-    prevent_initial_call=True,
-)
-def download_data(n_clicks, data):
-    dff = pd.DataFrame(data)
-    return dcc.send_data_frame(dff.to_csv, "filtered_csv.csv")
-
+app.layout = html.Div([header, body])
 
 if __name__ == "__main__":
     app.run_server(debug=True)
