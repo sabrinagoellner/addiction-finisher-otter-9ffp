@@ -15,6 +15,7 @@ header = html.Div(
                 ],
                 className="lead",
                 ),
+            # html.P("The prototype is tested using healthcare datasets and can handle image, text, and tabular data. Since healthcare represents an area where automatic decisions affect decisions about human lives, building responsible AI in this area is therefore indispensable.")
             html.Hr(className="my-2"),            
             dbc.Button("Research Paper", color="primary", size="lg", href="https://dl.gi.de/handle/20.500.12116/40372"), 
                     
@@ -28,8 +29,8 @@ header = html.Div(
 body = dbc.Container(
     [
         dbc.Row(
-            [   
-                dbc.Alert("A demo off the app will be available soon on this page.", color="light"),
+            [
+                dbc.Alert("LIVE DEMO will be available soon on this page.", color="light"),
                 dbc.Card([
                     dbc.CardHeader("VERIFAI Lifecycle"),
                     dbc.CardImg(src=get_asset_url('lifecycle.svg'))
