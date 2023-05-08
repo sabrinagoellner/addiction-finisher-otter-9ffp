@@ -14,9 +14,9 @@ layout = dbc.Container(
     [
         dbc.Row(
             [
-                dbc.Alert("LIVE DEMO will be available soon on this page.", color="light"),
+                dbc.Alert("Our LIVE DEMO will be available soon on this page.", color="light"),
                 dbc.Card([
-                    dbc.CardHeader("VERIFAI Lifecycle"),
+                    #dbc.CardHeader("VERIFAI Lifecycle"),
                     dbc.CardImg(src=get_asset_url('verifai_lifecycle.png '))
                 ],
                     class_name="my-2",
