@@ -3,4 +3,7 @@ gunicorn
 dash-tools
 dash_bootstrap_templates
 dash_dangerously_set_inner_html
-wordcloud
+wordcloud~=1.9.2
+plotly~=5.15.0
+flask~=2.2.4
+pandas~=2.0.2
