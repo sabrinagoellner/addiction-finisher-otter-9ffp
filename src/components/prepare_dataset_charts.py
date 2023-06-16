@@ -2,11 +2,11 @@ import os
 import pandas as pd
 from glob import glob
 from dash import dash_table, get_asset_url
-from sklearn.metrics import confusion_matrix
+# from sklearn.metrics import confusion_matrix
 from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
-from random import randint
-import numpy as np
+# import matplotlib.pyplot as plt
+# from random import randint
+# import numpy as np
 import plotly.figure_factory as ff
 
 # plotly
@@ -17,7 +17,7 @@ import plotly.express as px
 
 def get_dataframe(name):
     if name == 'medical-reviews':
-        df = pd.read_csv('assets/datasets/nlp/medical_reviews/drug_reviews_filtered.csv')
+        df = pd.read_csv('assets/datasets/nlp/medical_reviews/sentiment_val.csv')
     elif name == 'skin-cancer':
         df = pd.read_csv('assets/datasets/image/skin_cancer/HAM10000_metadata.csv')
     elif name == 'heart-disease':
