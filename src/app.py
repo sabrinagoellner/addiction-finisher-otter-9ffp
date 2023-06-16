@@ -2,14 +2,14 @@ import dash
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 from dash import get_asset_url, dcc
-from flask import Flask
+# from flask import Flask
 
 from src.components import footer, navbar
 
-server = Flask(__name__)
+# server = Flask(__name__)
 app = dash.Dash(
     __name__,
-    server=server,
+    # server=server,
     use_pages=True,  # turn on Dash pages
     external_stylesheets=[
         dbc.themes.FLATLY,
