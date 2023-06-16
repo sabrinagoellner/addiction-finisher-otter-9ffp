@@ -3,5 +3,4 @@ gunicorn
 dash-tools
 dash_bootstrap_templates
 dash_dangerously_set_inner_html
-flask
 wordcloud
