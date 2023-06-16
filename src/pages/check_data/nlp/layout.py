@@ -71,11 +71,11 @@ page_content = dcc.Loading(
                     className="mb-4",
                 ),
 
-                dbc.Col(
-                    pie_chart_nlp,
-                    width=6,
-                    className="mb-4",
-                ),
+                # dbc.Col(
+                #     pie_chart_nlp,
+                #     width=6,
+                #     className="mb-4",
+                # ),
 
                 dbc.Col(
                     image,
@@ -117,7 +117,7 @@ def get_dataset(model_input):
     # Output('summary_table_nlp', 'children'),
     #Output('basic_eda_nlp', 'children'),
     Output('bar_chart_nlp', 'figure'),
-    Output('pie_chart_nlp', 'figure'),
+    # Output('pie_chart_nlp', 'figure'),
     Output('heatmap_nlp', 'figure'),
 
     #Input('dataset_input', 'data'),
@@ -155,15 +155,15 @@ def summary_table(model_type, theme_switch):
         df.loc[(df['rating'] >= 5), 'sentiment'] = 1
         df.loc[(df['rating'] < 5), 'sentiment'] = 0
 
-        px_pie_chart = to_styled_pie_chart(
-            dataframe=df['sentiment'].value_counts(),
-            title="",
-            values='sentiment',
-            classes=['positive', 'negative'],
-            template=template)
+        # px_pie_chart = to_styled_pie_chart(
+        #     dataframe=df['sentiment'].value_counts(),
+        #     title="",
+        #     values='sentiment',
+        #     classes=['positive', 'negative'],
+        #     template=template)
 
         # word cloud image:
         px_wordcloud = create_wordcloud(df['review'], template=template, title='')
-        return px_bar_chart, px_pie_chart, px_wordcloud
+        return px_bar_chart, px_wordcloud
 
 

@@ -73,11 +73,11 @@ page_content = dcc.Loading(
                     className="mb-4",
                 ),
 
-                dbc.Col(
-                    pie_chart_image,
-                    width=6,
-                    className="mb-4",
-                ),
+                # dbc.Col(
+                #     pie_chart_image,
+                #     width=6,
+                #     className="mb-4",
+                # ),
 
                 dbc.Col(
                     image,
@@ -120,7 +120,7 @@ def get_dataset(model_input):
     #Output('summary_table_image', 'children'),
     #Output('basic_eda_image', 'children'),
     Output('bar_chart_image', 'figure'),
-    Output('pie_chart_image', 'figure'),
+    # Output('pie_chart_image', 'figure'),
     Output('heatmap_image', 'figure'),
 
     Input('model_type', 'data'),
@@ -148,16 +148,16 @@ def summary_table(model_type, theme_switch):
             title="Skin Lesions",
             template=template)
 
-        px_pie_chart = to_styled_pie_chart(
-            dataframe=df['sex'].value_counts(),
-            title="Gender",
-            values='sex',
-            classes=['male', 'female', 'unknown'],
-            template=template)
+        # px_pie_chart = to_styled_pie_chart(
+        #     dataframe=df['sex'].value_counts(),
+        #     title="Gender",
+        #     values='sex',
+        #     classes=['male', 'female', 'unknown'],
+        #     template=template)
 
         skin_mel = df.loc[:, ['age', 'sex', 'localization', 'cell_type']]
         px_heatmap = skin_heatmap(skin_mel, template)
 
-        return px_bar_chart, px_pie_chart, px_heatmap
+        return px_bar_chart, px_heatmap
 
 
