@@ -20,11 +20,11 @@ layout = html.Div([
             html.H4("Evaluating the Responsibility of AI-Systems", style={"color":"white"}),
             html.Hr(className="my-2"),
 
-            dbc.ButtonGroup(
-                [
-                    dbc.Button("Try live demo", color="primary", size="lg", href='/start'),
-                ],
-            ),
+            # dbc.ButtonGroup(
+            #     [
+            #         dbc.Button("Try live demo", color="primary", size="lg", href='/start'),
+            #     ],
+            # ),
         ]),
     ]),
     # Main Content
