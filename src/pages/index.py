@@ -20,11 +20,11 @@ layout = html.Div([
             html.H4("Evaluating the Responsibility of AI-Systems", style={"color":"white"}),
             html.Hr(className="my-2"),
 
-            # dbc.ButtonGroup(
-            #     [
-            #         dbc.Button("Try live demo", color="primary", size="lg", href='/start'),
-            #     ],
-            # ),
+            dbc.ButtonGroup(
+                [
+                    dbc.Button("Try live demo", color="primary", size="lg", href='/start'),
+                ],
+            ),
         ]),
     ]),
     # Main Content
@@ -107,7 +107,7 @@ layout = html.Div([
                             ]),
                             html.Div(className="card-body", children=[
                                 html.H5(className="card-title", children=[
-                                    html.A("Ethics", href=""),
+                                    html.Span("Ethics"),
                                 ]),
                                 html.P(className="card-text",
                                        children="Among the key requirements for ethical AI, fairness stands out as the most critical aspect according to the literature. Ensuring AI systems are non-biased and non-discriminating in all aspects of their operation is crucial in fostering trust and acceptance. Alongside fairness, accountability is essential, with AI systems justifying their decisions and actions transparently. Sustainability is another vital requirement, with AI systems designed to consider long-term consequences and align with Sustainable Development Goals. Lastly, compliance with robust laws and regulations guarantees that AI systems operate within legal and ethical boundaries. "),
@@ -122,7 +122,7 @@ layout = html.Div([
                             ]),
                             html.Div(className="card-body", children=[
                                 html.H5(className="card-title", children=[
-                                    html.A("Explainability", href=""),
+                                    html.Span("Explainability"),
                                 ]),
                                 html.P(className="card-text",
                                        children="The black box problem in AI models has driven the development of Explainable AI (XAI) to understand the decision-making process, perceived as the main aspect for greater trustworthiness. XAI focuses on a human-centered approach, tailoring explanations to user needs and target groups. Numerous techniques are discussed in the current literature, with new ones being developed. An intuitive user interface and visually understandable language enhance comprehension and engagement. Explainability serves as both a functional and non-functional requirement, emphasizing the AI system's inner workings and effective communication. Ultimately, XAI aims to improve users' decision-making based on provided explanations, ensuring informed choices."),
@@ -137,7 +137,7 @@ layout = html.Div([
                             ]),
                             html.Div(className="card-body", children=[
                                 html.H5(className="card-title", children=[
-                                    html.A("Privacy", href=""),
+                                    html.Span("Privacy"),
                                 ]),
                                 html.P(className="card-text",
                                        children="When handling sensitive data, Privacy is crucial in RAI systems. Compliance with regulations like the GDPR is vital, and technologies like Federated Learning can help. Organizational processes should complement these techniques to ensure robust data protection. Numerous security threats in machine learning include stealing the model or sensitive user information, reconstruction attacks, and membership inference attacks, with the latter being a rapidly evolving research branch. Hybrid Privacy-Preserving Machine Learning approaches balance ML performance and privacy overhead while minimizing communication and computational costs for enhanced efficiency and scalability."),
@@ -152,7 +152,7 @@ layout = html.Div([
                             ]),
                             html.Div(className="card-body", children=[
                                 html.H5(className="card-title", children=[
-                                    html.A("Security", href=""),
+                                    html.Span("Security"),
                                 ]),
                                 html.P(className="card-text",
                                        children="Numerous security threats exist within the branch of machine learning that warrant attention. These threats encompass poisoning attacks, where the training data is manipulated to undermine the model's performance, and adversarial attacks, in which adversaries craft malicious input samples to deceive the model and induce incorrect predictions. The AI security domain is swiftly progressing, as researchers devise innovative techniques and countermeasures to combat these challenges."),
@@ -167,7 +167,7 @@ layout = html.Div([
                             ]),
                             html.Div(className="card-body", children=[
                                 html.H5(className="card-title", children=[
-                                    html.A("Trustworthiness", href=""),
+                                    html.Span("Trustworthiness"),
                                 ]),
                                 html.P(className="card-text",
                                        children="In the literature, trustworthiness is often connected to how the user perceives the system's reliability. To achieve this, AI systems must prioritize data protection, provide accurate predictions under uncertainty, and offer transparent, explainable reasoning to users. Additionally, these systems should be usable and accessible, act reliably 'as intended' in their applications, and be perceived as fair and useful. By focusing on these key aspects, developers can create RAI solutions that foster user trust and deliver value across a wide range of sectors, benefiting both users and society as a whole."),
@@ -182,7 +182,7 @@ layout = html.Div([
                             ]),
                             html.Div(className="card-body", children=[
                                 html.H5(className="card-title", children=[
-                                    html.A("Human-Centered", href=""),
+                                    html.Span("Human-Centered"),
                                 ]),
                                 html.P(className="card-text",
                                        children="This aspect is fundamental for RAI, emphasizing the need to consider user interaction and understanding when designing AI systems. This approach places the human user at the center of the AI experience, ensuring that the technology is not only efficient but also accessible and comprehensible to its users. One essential concept in human-centered AI is the Human-in-the-loop (HITL), which incorporates human input and feedback throughout the AI system's development and decision-making processes. This approach ensures that AI technologies are not solely reliant on algorithms but also benefit from human knowledge, experience, and intuition, allowing AI systems to better align with human values, expectations, and ethical considerations."),
