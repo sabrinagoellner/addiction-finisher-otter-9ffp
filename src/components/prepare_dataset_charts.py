@@ -17,7 +17,7 @@ import plotly.express as px
 
 def get_dataframe(name):
     if name == 'medical-reviews':
-        df = pd.read_csv('assets/datasets/nlp/medical_reviews/medical_reviews.csv')
+        df = pd.read_csv('assets/datasets/nlp/medical_reviews/drug_reviews_filtered.csv')
     elif name == 'skin-cancer':
         df = pd.read_csv('assets/datasets/image/skin_cancer/HAM10000_metadata.csv')
     elif name == 'heart-disease':

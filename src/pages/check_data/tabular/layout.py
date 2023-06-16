@@ -81,7 +81,7 @@ page_content = dcc.Loading(
             ])
     ], type="circle")
 
-layout = html.Div([
+layout = dbc.Container([
     create_step_progress_bar(["Start", "Lifecycle", "Use Case", "Data Analysis", "Test Settings", "Fairness", "Privacy", "Security", "Explainability", "Results"], 3),
     card_content,
     page_content
