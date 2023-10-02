@@ -17,14 +17,15 @@ dash.register_page(
 app = dash.get_app()
 
 page_header_ex = html.Div([
+    dbc.Alert(
+        "The use cases for the models in NLP and image recognition will soon be available for testing.",
+        color='warning'),
     dbc.RadioItems(
         options=[
-            {"label": "Skin Cancer", "value": "image"},
-            {"label": "Medical reviews", "value": "nlp"},
+            #{"label": "Skin Cancer", "value": "image"},
+            #{"label": "Medical reviews", "value": "nlp"},
             {"label": "Heart Disease", "value": "tabular"},
-            # {"label": "Alzheimers Desease", "value": "alzheimer"},
-            # {"label": "Ohsumed", "value": "ohsumed"},
-            # {"label": "Chest x-ray", "value": "chest-x-ray"},
+
         ],
         value="tabular",
         name="model_input",
@@ -113,23 +114,32 @@ layout = dbc.Container([
     dbc.Col(
         dbc.Card([
             dbc.CardHeader(
-                html.H4("Model Cards"),
+                html.H4("Model Cards")
             ),
             dbc.Card([
                 dbc.CardHeader(
                     html.H5("Scenario: Healthcare"),
                 ),
                 dbc.CardBody(
-                    "The use of artificial intelligence (AI) in medical field is becoming a reality in many specialties. "
+                    [
+                        html.P("The use of artificial intelligence (AI) in medical field is becoming a reality in many specialties. "
                     "AI is gradually becoming the main assistant of medical workers. "
                     "Machine learning algorithms help hospital administrators manage processes, doctors make more accurate medical decisions. "
                     "In general, AI makes medical services better and more efficient. "
-                    "The introduction of AI-based systems is one of the key trends in modern healthcare.",
+                    "The introduction of AI-based systems is one of the key trends in modern healthcare.",)
+                    ],
+
                 ),
             ]),
             dbc.Card([
                 dbc.CardHeader(
-                    html.H5("Classification"),
+                    [
+                        html.H5("Classification"),
+                        dbc.Alert(
+                            "Disclaimer: These models were trained on very specific healthcare research datasets and are only examples of our use cases. The application is an ongoing research project and not yet tested on other data and models.",
+                            color='warning'),
+
+                    ]
                 ),
                 dbc.CardBody(
                     model_cards_row,

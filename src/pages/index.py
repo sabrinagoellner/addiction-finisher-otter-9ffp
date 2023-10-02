@@ -1,8 +1,9 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+
 import dash_bootstrap_components as dbc
 from dash import get_asset_url
+from dash import dcc
+from dash import html
 
 dash.register_page(
     __name__,
@@ -20,11 +21,11 @@ layout = html.Div([
             html.H4("Evaluating the Responsibility of AI-Systems", style={"color":"white"}),
             html.Hr(className="my-2"),
 
-            # dbc.ButtonGroup(
-            #     [
-            #         dbc.Button("Try live demo", color="primary", size="lg", href='/start'),
-            #     ],
-            # ),
+            dbc.ButtonGroup(
+                [
+                    dbc.Button("Try live demo", color="primary", size="lg", href='/start'),
+                ],
+            ),
         ]),
     ]),
     # Main Content
