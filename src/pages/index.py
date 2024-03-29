@@ -46,6 +46,9 @@ layout = html.Div([
                 ]),
                 dbc.Button("Research Papers", outline=True, color="secondary", size="lg",
                            href="https://sabrinagoellner.github.io", target="_blank"),
+                dbc.Button("Git Repository", outline=True, color="secondary", size="lg",
+                           href="https://gitlab.com/sabrinagoellner/VERIFAI", target="_blank"),
+                
             ]),
         ]),
 
